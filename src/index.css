@@ -11,17 +11,20 @@
   background-color: #b1d2ff;
 }
 
-.spinner {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: conic-gradient(#0000 10%, #474bff);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
-  animation: spinner-zp9dbg 1s infinite linear;
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+  height: 45px;
+  aspect-ratio: 1.2;
+  --c:no-repeat repeating-linear-gradient(90deg,#000 0 20%,#0000 0 40%);
+  background: 
+    var(--c) 50% 0,
+    var(--c) 50% 100%;
+  background-size: calc(500%/6) 50%;
+  animation: l10 1s infinite linear;
 }
-
-@keyframes spinner-zp9dbg {
-  to {
-    transform: rotate(1turn);
-  }
+@keyframes l10 {
+  33%  {background-position: 0   0   ,100% 100%}
+  66%  {background-position: 0   100%,100% 0   }
+  100% {background-position: 50% 100%,50%  0   }
 }
